@@ -1,0 +1,14 @@
+.DS_Store
+*/.DS_Store
+.ipynb*
+*/.ipynb*
+.idea
+*/.idea
+
+#Folders to ignore
+.vscode/
+P1-WarmUp-C/
+Scrap_sketch/
+observables.py
+
+__pycache__
