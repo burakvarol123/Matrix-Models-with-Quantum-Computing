@@ -7,7 +7,7 @@ def ansatz_review_exact(N, depth):  # i only use ry gates now, exactly like in t
     circuit = QuantumCircuit(N,N)
     thetas = []
     for l in range(N * (depth + 1)):
-        thetas.append(Parameter('θ_' + str(l)))
+        thetas.append(Parameter('θ_' + str(chr(l))))
     counter_3 = 0
     for i in range(depth):
         counter_2 = 0
@@ -16,11 +16,12 @@ def ansatz_review_exact(N, depth):  # i only use ry gates now, exactly like in t
                 circuit.ry(thetas[l + counter_2 + counter_3 + N], l + counter_2)
         counter_3 = counter_3 + N
         for p in range(N):
-            circuit.cx(p, (p + 1) % N)
+            circuit.cx( (p+N-1)%N,(p + N) % N)
         circuit.barrier()
     counter = 0
     for j in range(N):
         circuit.ry(thetas[j], j)
+        print(thetas[j])
         counter = counter + 1
     for k in range(N):
         if k + int(N / 2) < N:

@@ -1,8 +1,8 @@
 import numpy as np
 from qiskit.circuit.library import *
-import qiskit.quantum_info as qi
+from qiskit.extensions import UnitaryGate
 from qiskit import *
-from qiskit.circuit.QuantumCircuit import *
+from qiskit.quantum_info import SparsePauliOp
 
 
 def krZ(m, N):
@@ -37,7 +37,31 @@ def Ham(N, a, b):
     mat = a ** 2 * np.linalg.matrix_power((0.5 * np.kron(ZGate(), krId(N - 1)) + np.kron(ZGate(), ktot(N - 1))), b)
     return mat
 
-def ham_gate(Ham,N,a,b):
-    qc = QuantumCircuit(2*N)
-    ham = qi.Operator(Ham(N,a,b))
-    return qc.unitary()
+
+def create_Hamilton_2(D):
+    c = ["I" + "I" * D]
+    coeffs = [1 / 4]
+    for m in range(D):
+        c.append("I" + "I" * D)
+        coeffs.append(2 ** (m - 1) + 2 ** (2 * m - 1))
+        c.append("I" + "I" * m + "Z" + "I" * (D - m - 1))
+        coeffs.append(-2 ** (m - 1) - 2 ** (2 * m - 1))
+    for m in range(D):
+        for n in range(D):
+            if m > n:
+                c.append("I" + "I" * D)
+                coeffs.append(2 ** (m + n - 1))
+                c.append("I" + "I" * (m) + "Z" + "I" * (D - m - 1))
+                coeffs.append(-2 ** (m + n - 1))
+                c.append("I" + "I" * (n) + "Z" + "I" * (D - n - 1))
+                coeffs.append(-2 ** (m + n - 1))
+                c.append("I" + "I" * (n) + "Z" + "I" * (m - n - 1) + "Z" + "I" * (D - m - 1))
+                coeffs.append(2 ** (m + n - 1))
+    #e= [s + "I"*(D+1) for s in c]
+
+    d = SparsePauliOp(c, coeffs)
+
+    return d
+
+
+
