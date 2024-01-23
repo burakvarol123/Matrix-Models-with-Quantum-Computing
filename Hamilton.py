@@ -32,13 +32,17 @@ def ktot(N):
         sum += 2 ** h * k_m(N, 1, h)
     return sum
 
+def position_x(N):
+    return 0.5 * np.kron(ZGate(), krId(N - 1)) + np.kron(ZGate(), ktot(N - 1))
+
 
 def Ham(N, a, b):
-    mat = a ** 2 * np.linalg.matrix_power((0.5 * np.kron(ZGate(), krId(N - 1)) + np.kron(ZGate(), ktot(N - 1))), b)
+    x = position_x(N)
+    mat = a ** 2 * np.linalg.matrix_power(x, b)
     return mat
 
 
-def create_Hamilton_2(D):
+def create_Hamilton_2(D): #creates x**2 with pauli strings
     c = ["I" + "I" * D]
     coeffs = [1 / 4]
     for m in range(D):
@@ -57,11 +61,13 @@ def create_Hamilton_2(D):
                 coeffs.append(-2 ** (m + n - 1))
                 c.append("I" + "I" * (n) + "Z" + "I" * (m - n - 1) + "Z" + "I" * (D - m - 1))
                 coeffs.append(2 ** (m + n - 1))
-    #e= [s + "I"*(D+1) for s in c]
+    e= [s + "I"*(D+1) for s in c]
 
-    d = SparsePauliOp(c, coeffs)
+    d = SparsePauliOp(e, coeffs)
 
     return d
 
-
+if __name__ == "__main__":
+    print(position_x(2))
+    print(Ham(2,1,2))
 

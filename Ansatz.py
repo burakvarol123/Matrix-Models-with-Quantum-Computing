@@ -4,25 +4,21 @@ import numpy as np
 
 
 def ansatz_review_exact(N, depth):  # i only use ry gates now, exactly like in the paper
-    circuit = QuantumCircuit(N,N)
+    circuit = QuantumCircuit(N)
     thetas = []
     for l in range(N * (depth + 1)):
         thetas.append(Parameter('θ_' + str(chr(l))))
-    counter_3 = 0
+    counter = 0
     for i in range(depth):
-        counter_2 = 0
         for l in range(N):
-            if l + counter_2 + counter_3 < len(thetas):
-                circuit.ry(thetas[l + counter_2 + counter_3 + N], l + counter_2)
-        counter_3 = counter_3 + N
+            if l + counter < len(thetas):
+                circuit.ry(thetas[l + counter + N], l )
+        counter = counter + N
         for p in range(N):
             circuit.cx( (p+N-1)%N,(p + N) % N)
         circuit.barrier()
-    counter = 0
     for j in range(N):
         circuit.ry(thetas[j], j)
-        print(thetas[j])
-        counter = counter + 1
     for k in range(N):
         if k + int(N / 2) < N:
             circuit.cx(k, (k + int(N / 2)))
@@ -91,7 +87,4 @@ def ansatz_varqite(N, depth):
     return circuit
 
 
-def measu(N):
-    circuit = QuantumCircuit(N, int(N / 2))
-    circuit.measure(np.arange(int(N / 2)-1), int(N / 2)-1)
-    return circuit
+
