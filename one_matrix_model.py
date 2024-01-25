@@ -43,7 +43,7 @@ if __name__ == "__main__":
     #print(len(lambdas))
     print(lambdas[0])
     print(ham)
-    ham = np.kron(ham, krId(d*N))
+    
     varqite = create_distribution_varqite(N, 2, ham, 1)
 
 

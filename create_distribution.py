@@ -23,7 +23,7 @@ def create_distribution_varqite(qubits, depth, hamilton, beta):
     :param beta: 1/kT
     :return: the circuit with correct parameters, parameters, expectation value, the object "evolution result"
     """
-    hamiltonian = Operator(hamilton)
+    hamiltonian = Operator(np.kron(hamilton, hm.krId(qubits)))
     var_principle = ImaginaryMcLachlanPrinciple()
     time = beta / 2.0
     aux_ops = [hamiltonian]
