@@ -1,3 +1,8 @@
+#!/lustre/fs24/group/cqta/bvarol/package/miniconda3/bin/python3.11
+import sys
+module_directory_path = "/lustre/fs24/group/cqta/bvarol/workspace/matrixmodels"
+sys.path.append(module_directory_path)
+
 import numpy as np
 import Hamilton as hm
 from create_distribution import create_distribution_varqite
@@ -56,7 +61,7 @@ def write_parameters_to_file(path: str, params: dict):
         for key, value in params.items():
             fd.write(f'{key}={value};\n')
 
-if __name__ == "__main__":
+if __name__ == "__main__":  
     filenames = sorted(sys.argv[1:])
     parameter_template = {
         'depth': int,

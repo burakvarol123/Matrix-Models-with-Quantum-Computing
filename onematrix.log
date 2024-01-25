@@ -1,0 +1,188 @@
+000 (1076352.000.000) 2024-01-25 23:46:06 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_9399_82bd>
+...
+040 (1076352.000.000) 2024-01-25 23:46:10 Started transferring input files
+	Transferring to host: <141.34.15.45:9618?addrs=141.34.15.45-9618&alias=pizza16.zeuthen.desy.de&noUDP&sock=slot1_31_8028_33c0_17257>
+...
+040 (1076352.000.000) 2024-01-25 23:46:10 Finished transferring input files
+...
+001 (1076352.000.000) 2024-01-25 23:46:11 Job executing on host: <141.34.15.45:9618?addrs=141.34.15.45-9618&alias=pizza16.zeuthen.desy.de&noUDP&sock=startd_7924_c88b>
+...
+006 (1076352.000.000) 2024-01-25 23:46:14 Image size of job updated: 47012
+	0  -  MemoryUsage of job (MB)
+	0  -  ResidentSetSize of job (KB)
+...
+040 (1076352.000.000) 2024-01-25 23:46:14 Started transferring output files
+...
+040 (1076352.000.000) 2024-01-25 23:46:14 Finished transferring output files
+...
+005 (1076352.000.000) 2024-01-25 23:46:14 Job terminated.
+	(1) Normal termination (return value 1)
+		Usr 0 00:00:00, Sys 0 00:00:01  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:00, Sys 0 00:00:01  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	172  -  Run Bytes Sent By Job
+	4096  -  Run Bytes Received By Job
+	172  -  Total Bytes Sent By Job
+	4096  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 1         1 
+	   Disk (KB)            :       17  8396800  10743476 
+	   Memory (MB)          :        0     8192      8192 
+
+	Job terminated of its own accord at 2024-01-25T22:46:14Z with exit-code 1.
+...
+000 (1076353.000.000) 2024-01-25 23:46:55 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_9399_82bd>
+...
+040 (1076353.000.000) 2024-01-25 23:46:58 Started transferring input files
+	Transferring to host: <141.34.15.45:9618?addrs=141.34.15.45-9618&alias=pizza16.zeuthen.desy.de&noUDP&sock=slot1_31_8028_33c0_17259>
+...
+040 (1076353.000.000) 2024-01-25 23:46:59 Finished transferring input files
+...
+001 (1076353.000.000) 2024-01-25 23:46:59 Job executing on host: <141.34.15.45:9618?addrs=141.34.15.45-9618&alias=pizza16.zeuthen.desy.de&noUDP&sock=startd_7924_c88b>
+...
+006 (1076353.000.000) 2024-01-25 23:47:01 Image size of job updated: 4
+	0  -  MemoryUsage of job (MB)
+	0  -  ResidentSetSize of job (KB)
+...
+040 (1076353.000.000) 2024-01-25 23:47:01 Started transferring output files
+...
+040 (1076353.000.000) 2024-01-25 23:47:01 Finished transferring output files
+...
+005 (1076353.000.000) 2024-01-25 23:47:01 Job terminated.
+	(1) Normal termination (return value 1)
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	172  -  Run Bytes Sent By Job
+	4096  -  Run Bytes Received By Job
+	172  -  Total Bytes Sent By Job
+	4096  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 1         1 
+	   Disk (KB)            :       17  8396800  10743476 
+	   Memory (MB)          :        0     8192      8192 
+
+	Job terminated of its own accord at 2024-01-25T22:47:01Z with exit-code 1.
+...
+000 (1076354.000.000) 2024-01-26 00:04:53 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_9399_82bd>
+...
+040 (1076354.000.000) 2024-01-26 00:04:58 Started transferring input files
+	Transferring to host: <141.34.15.205:9618?addrs=141.34.15.205-9618&alias=pizza07.zeuthen.desy.de&noUDP&sock=slot1_24_8028_33c0_16968>
+...
+040 (1076354.000.000) 2024-01-26 00:04:58 Finished transferring input files
+...
+001 (1076354.000.000) 2024-01-26 00:04:59 Job executing on host: <141.34.15.205:9618?addrs=141.34.15.205-9618&alias=pizza07.zeuthen.desy.de&noUDP&sock=startd_7893_851c>
+...
+006 (1076354.000.000) 2024-01-26 00:05:02 Image size of job updated: 4
+	0  -  MemoryUsage of job (MB)
+	0  -  ResidentSetSize of job (KB)
+...
+040 (1076354.000.000) 2024-01-26 00:05:02 Started transferring output files
+...
+040 (1076354.000.000) 2024-01-26 00:05:02 Finished transferring output files
+...
+005 (1076354.000.000) 2024-01-26 00:05:02 Job terminated.
+	(1) Normal termination (return value 1)
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	172  -  Run Bytes Sent By Job
+	4273  -  Run Bytes Received By Job
+	172  -  Total Bytes Sent By Job
+	4273  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 1         1 
+	   Disk (KB)            :       18  8396800  10743476 
+	   Memory (MB)          :        0     8192      8192 
+
+	Job terminated of its own accord at 2024-01-25T23:05:02Z with exit-code 1.
+...
+000 (1076355.000.000) 2024-01-26 00:13:47 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_9399_82bd>
+...
+040 (1076355.000.000) 2024-01-26 00:13:51 Started transferring input files
+	Transferring to host: <141.34.15.79:9618?addrs=141.34.15.79-9618&alias=bladek6.zeuthen.desy.de&noUDP&sock=slot1_5_8528_7f54_15365>
+...
+040 (1076355.000.000) 2024-01-26 00:13:51 Finished transferring input files
+...
+001 (1076355.000.000) 2024-01-26 00:13:52 Job executing on host: <141.34.15.79:9618?addrs=141.34.15.79-9618&alias=bladek6.zeuthen.desy.de&noUDP&sock=startd_8424_bde6>
+...
+006 (1076355.000.000) 2024-01-26 00:14:00 Image size of job updated: 387556
+	45  -  MemoryUsage of job (MB)
+	45608  -  ResidentSetSize of job (KB)
+...
+040 (1076355.000.000) 2024-01-26 00:14:08 Started transferring output files
+...
+040 (1076355.000.000) 2024-01-26 00:14:08 Finished transferring output files
+...
+005 (1076355.000.000) 2024-01-26 00:14:08 Job terminated.
+	(1) Normal termination (return value 1)
+		Usr 0 00:00:02, Sys 0 00:00:02  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:02, Sys 0 00:00:02  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	332  -  Run Bytes Sent By Job
+	4029  -  Run Bytes Received By Job
+	332  -  Total Bytes Sent By Job
+	4029  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 1         1 
+	   Disk (KB)            :       18  8396800   9398357 
+	   Memory (MB)          :       45     8192      8192 
+
+	Job terminated of its own accord at 2024-01-25T23:14:08Z with exit-code 1.
+...
+000 (1076356.000.000) 2024-01-26 00:31:17 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_9399_82bd>
+...
+040 (1076356.000.000) 2024-01-26 00:31:20 Started transferring input files
+	Transferring to host: <141.34.15.194:9618?addrs=141.34.15.194-9618&alias=bladekc.zeuthen.desy.de&noUDP&sock=slot1_4_8502_2d93_15382>
+...
+040 (1076356.000.000) 2024-01-26 00:31:20 Finished transferring input files
+...
+001 (1076356.000.000) 2024-01-26 00:31:21 Job executing on host: <141.34.15.194:9618?addrs=141.34.15.194-9618&alias=bladekc.zeuthen.desy.de&noUDP&sock=startd_8415_918c>
+...
+006 (1076356.000.000) 2024-01-26 00:31:30 Image size of job updated: 421740
+	87  -  MemoryUsage of job (MB)
+	88928  -  ResidentSetSize of job (KB)
+...
+006 (1076356.000.000) 2024-01-26 00:31:33 Image size of job updated: 421740
+	87  -  MemoryUsage of job (MB)
+	88980  -  ResidentSetSize of job (KB)
+...
+040 (1076356.000.000) 2024-01-26 00:31:33 Started transferring output files
+...
+040 (1076356.000.000) 2024-01-26 00:31:33 Finished transferring output files
+...
+005 (1076356.000.000) 2024-01-26 00:31:33 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:00:03, Sys 0 00:00:02  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:03, Sys 0 00:00:02  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	42  -  Run Bytes Sent By Job
+	4029  -  Run Bytes Received By Job
+	42  -  Total Bytes Sent By Job
+	4029  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 1         1 
+	   Disk (KB)            :       18  8396800   9398357 
+	   Memory (MB)          :       87     8192      8192 
+
+	Job terminated of its own accord at 2024-01-25T23:31:33Z with exit-code 0.
+...
+000 (1076357.000.000) 2024-01-26 00:36:22 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_9399_82bd>
+...
+040 (1076357.000.000) 2024-01-26 00:36:42 Started transferring input files
+	Transferring to host: <141.34.15.194:9618?addrs=141.34.15.194-9618&alias=bladekc.zeuthen.desy.de&noUDP&sock=slot1_4_8502_2d93_15389>
+...
+007 (1076357.000.000) 2024-01-26 00:36:42 Shadow exception!
+	Error from slot1@bladekc.zeuthen.desy.de: SHADOW at 141.34.103.36 failed to send file(s) to <141.34.15.194:39675>: |Error: reading from file /lustre/fs24/group/cqta/bvarol/workspace/matrixmodels/-m run01.dipf: (errno 2) No such file or directory; STARTER failed to receive file(s) from <141.34.103.36:9618>
+	0  -  Run Bytes Sent By Job
+	3367  -  Run Bytes Received By Job
+...
+012 (1076357.000.000) 2024-01-26 00:36:42 Job was held.
+	Transfer input files failure at access point wgs3a while sending files to execution point slot1@bladekc.zeuthen.desy.de. Details: reading from file /lustre/fs24/group/cqta/bvarol/workspace/matrixmodels/-m run01.dipf: (errno 2) No such file or directory
+	Code 13 Subcode 2
+...

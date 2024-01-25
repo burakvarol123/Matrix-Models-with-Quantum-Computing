@@ -32,8 +32,7 @@ if __name__ == "__main__":
     #c = create_lambda(2,2,2)
     #print(position_x(3).shape)
     #print(vandermonde(2, 2)==np.matmul((b-a),np.matmul((c-a),(c-b))))
-    d = 0
-    N =2
+
     lambdas = []
     for i in range(d + 1):
         lambdas.append(create_lambda(i, d, N))
