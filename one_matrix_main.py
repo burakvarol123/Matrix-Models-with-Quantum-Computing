@@ -4,6 +4,7 @@ from create_distribution import create_distribution_varqite
 from copy import copy
 import sys
 from time import process_time
+from one_matrix_model import create_lambda
 
 
 def read_parameters_from_file(path: str, params: dict):
@@ -73,10 +74,16 @@ if __name__ == "__main__":
         parameters = copy(parameter_template)
         parameters = read_parameters_from_file(filename, parameters)
         qubits = (parameters['D']+1)*parameters['qubits_per_dim']
+        lambdas = []
+        for i in range(parameters['D']+1):
+            lambdas.append(create_lambda(i, parameters['D'], parameters['qubits_per_dim']))
+        hamiltonian = 0
+        for i in range(parameters['D']+1):
+            hamiltonian += 1 ** 2 * np.linalg.matrix_power(lambdas[i], parameters['power'])
 
         hamiltonian = hm.Ham( qubits, parameters['a'], parameters['power'])
         start = process_time()
-        varqite = create_distribution_varqite(qubits, 2, hamiltonian, 1)
+        varqite = create_distribution_varqite(qubits, parameters['depth'], hamiltonian, parameters['beta'])
         stop = process_time()
        
         parameters['thetas'] = varqite[1]
@@ -85,4 +92,3 @@ if __name__ == "__main__":
         parameters['Process time'] = stop - start
         write_parameters_to_file(filename, parameters)
         np.save(filename + '_evolution', evolution_result)
-

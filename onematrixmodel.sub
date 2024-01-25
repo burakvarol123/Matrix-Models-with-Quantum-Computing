@@ -1,0 +1,14 @@
+universe		         = vanilla
+Enviroment               = /Users/salsa/MatrixModels/matrixmodels/
+executable             	 = one_matrix_main.py
+log                    	 = onematrix.log
+input                    = run01.dipf
+output                 	 = onematrix_$(SUBMIT_TIME)
+error                  	 = onematrixerror_$(SUBMIT_TIME)
+should_transfer_files  	 = Yes
+when_to_transfer_output	 = ON_EXIT
+request_memory         	 = 8GB
+request_disk           	 = 8GB
++JobFlavour		         = "nextweek"
+
+queue
