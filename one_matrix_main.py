@@ -84,11 +84,10 @@ if __name__ == "__main__":
             lambdas.append(create_lambda(i, parameters['D'], parameters['qubits_per_dim']))
         hamiltonian = 0
         for i in range(parameters['D']+1):
-            hamiltonian += 1 ** 2 * np.linalg.matrix_power(lambdas[i], parameters['power'])
+            hamiltonian += parameters["a"] ** 2 * np.linalg.matrix_power(lambdas[i], parameters['power'])
 
-        hamiltonian = hm.Ham( qubits, parameters['a'], parameters['power'])
         start = process_time()
-        varqite = create_distribution_varqite(qubits, parameters['depth'], hamiltonian, parameters['beta'])
+        varqite = create_distribution_varqite(qubits, parameters['depth'],np.kron(hamiltonian,hm.krId(qubits)), parameters['beta'])
         stop = process_time()
        
         parameters['thetas'] = varqite[1]

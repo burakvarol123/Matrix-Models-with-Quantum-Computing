@@ -2,7 +2,7 @@ universe		         = vanilla
 Enviroment      	 ="PYTHONPATH='/lustre/fs24/group/cqta/bvarol/workspace/matrixmodels:$PYTHONPATH'" 
 executable             	 = one_matrix_main.py
 log                    	 = onematrix.log
-input                    = -m run01.dipf
+arguments		 = /lustre/fs24/group/cqta/bvarol/workspace/matrixmodels/results/run02.dipf
 output                 	 = onematrix
 error                  	 = onematrixerror
 should_transfer_files  	 = Yes
