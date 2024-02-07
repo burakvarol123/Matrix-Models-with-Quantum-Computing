@@ -1,3 +1,4 @@
+import hamiltonian_2 as hm2
 import numpy as np
 import Hamilton as hm
 import Ansatz as an
@@ -14,6 +15,7 @@ from utility import generate_combinations
 import os 
 
 
+
 def create_distribution_varqite(qubits, depth, hamilton, beta):
     """
     creates the distribution e**-beta H.
@@ -24,6 +26,22 @@ def create_distribution_varqite(qubits, depth, hamilton, beta):
     :return: the circuit with correct parameters, parameters, expectation value, the object "evolution result"
     """
     hamiltonian = Operator(np.kron(hamilton, hm.krId(qubits)))
+    var_principle = ImaginaryMcLachlanPrinciple()
+    time = beta / 2.0
+    aux_ops = [hamiltonian]
+    init_param_values = [np.pi / 2] * qubits + [0] * (depth * qubits * 2 + qubits)
+    ansatz = an.ansatz_review_exact(qubits * 2, depth)
+    evolution_problem = TimeEvolutionProblem(hamiltonian, time, aux_operators=aux_ops)
+    var_qite = VarQITE(ansatz, init_param_values, var_principle, Estimator())
+    evolution_result = var_qite.evolve(evolution_problem)
+    param = evolution_result.parameter_values[int(time * 100)][:]
+    binded = an.ansatz_review_exact(qubits * 2, depth).bind_parameters(param)
+    h_exp_val = np.array([ele[0][0] for ele in evolution_result.observables])
+
+    return binded, param, h_exp_val, evolution_result
+
+def create_distribution_2_varqite(qubits, depth, hamilton, beta):
+    hamiltonian = hamilton ^ hm2.insert_i(qubits)
     var_principle = ImaginaryMcLachlanPrinciple()
     time = beta / 2.0
     aux_ops = [hamiltonian]

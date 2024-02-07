@@ -5,11 +5,11 @@ sys.path.append(module_directory_path)
 
 import numpy as np
 import Hamilton as hm
-from create_distribution import create_distribution_varqite
+from create_distribution import create_distribution_2_varqite
 from copy import copy
 import sys
 from time import process_time
-from one_matrix_model import create_lambda
+from one_matrix_model import create_lambda_2
 
 
 def read_parameters_from_file(path: str, params: dict):
@@ -81,13 +81,13 @@ if __name__ == "__main__":
         qubits = (parameters['D']+1)*parameters['qubits_per_dim']
         lambdas = []
         for i in range(parameters['D']+1):
-            lambdas.append(create_lambda(i, parameters['D'], parameters['qubits_per_dim']))
+            lambdas.append(create_lambda_2(i, parameters['D'], parameters["qubits_per_dim"]))
         hamiltonian = 0
         for i in range(parameters['D']+1):
-            hamiltonian += parameters["a"] ** 2 * np.linalg.matrix_power(lambdas[i], parameters['power'])
+            hamiltonian += (parameters["a"] ** 2) * lambdas[i].power(parameters['power'])
 
         start = process_time()
-        varqite = create_distribution_varqite(qubits, parameters['depth'],np.kron(hamiltonian,hm.krId(qubits)), parameters['beta'])
+        varqite = create_distribution_2_varqite(qubits, parameters['depth'],hamiltonian, parameters['beta'])
         stop = process_time()
        
         parameters['thetas'] = varqite[1]
