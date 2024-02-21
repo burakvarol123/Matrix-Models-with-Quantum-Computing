@@ -13,6 +13,7 @@ from qiskit.quantum_info import Statevector
 import matplotlib.pyplot as plt
 from utility import generate_combinations
 import os 
+import one_matrix_model as om
 
 
 
@@ -63,7 +64,7 @@ def create_distribution_scipy(qubits, depth, hamilton, beta):
     :returns scipy calculated exp val, and the evolution object
     """
     ansatz = an.ansatz_review_exact(qubits * 2, depth)
-    hamiltonian = Operator(np.kron(hamilton, hm.krId(qubits)))
+    hamiltonian =  hamilton ^ hm2.insert_i(qubits)
     time = beta / 2.0
     aux_ops = [hamiltonian]
     init_param_values = [np.pi / 2] * qubits + [0] * (depth * qubits * 2 + qubits)
@@ -126,7 +127,7 @@ def get_expval(binded, observable, qubits):
     :return: expectation value
     """
     estimator = Estimator()
-    op = Operator(np.kron(observable, hm.krId(qubits)))
+    op = observable ^ hm2.insert_i(qubits)
     expectation_value = estimator.run(binded, op).result().values
     return expectation_value
 
@@ -166,3 +167,12 @@ for i in betas:
     sol = two_qubits_exp[1]
     compare_results(evolution_result, sol, h_exp_val , exact_h_exp_val, qubits , i)
     """
+lambdas = []
+for i in range(2):
+    lambdas.append(om.create_lambda_2(i, 1, 4))
+hamiltonian = 0
+for i in range(2):
+    hamiltonian += (1 ** 2) * lambdas[i].power(2)
+
+file = "/Users/salsa/MatrixModels/matrixmodels/remote/results/scipyresult.npy"
+np.save(file,create_distribution_scipy(8,1,hamiltonian,0.7))

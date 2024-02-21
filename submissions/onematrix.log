@@ -594,3 +594,85 @@
 	28  -  MemoryUsage of job (MB)
 	28348  -  ResidentSetSize of job (KB)
 ...
+006 (1646346.000.000) 2024-02-07 18:25:28 Image size of job updated: 5660740
+	426  -  MemoryUsage of job (MB)
+	435424  -  ResidentSetSize of job (KB)
+...
+006 (1646346.000.000) 2024-02-07 18:30:28 Image size of job updated: 5660740
+	442  -  MemoryUsage of job (MB)
+	451812  -  ResidentSetSize of job (KB)
+...
+006 (1646346.000.000) 2024-02-07 20:05:37 Image size of job updated: 5660740
+	453  -  MemoryUsage of job (MB)
+	463380  -  ResidentSetSize of job (KB)
+...
+006 (1646346.000.000) 2024-02-07 21:50:48 Image size of job updated: 5660740
+	485  -  MemoryUsage of job (MB)
+	496068  -  ResidentSetSize of job (KB)
+...
+006 (1646346.000.000) 2024-02-07 21:55:49 Image size of job updated: 5660740
+	503  -  MemoryUsage of job (MB)
+	514500  -  ResidentSetSize of job (KB)
+...
+006 (1646346.000.000) 2024-02-08 03:01:20 Image size of job updated: 5660740
+	504  -  MemoryUsage of job (MB)
+	515968  -  ResidentSetSize of job (KB)
+...
+006 (1646346.000.000) 2024-02-08 23:08:26 Image size of job updated: 5660740
+	506  -  MemoryUsage of job (MB)
+	517324  -  ResidentSetSize of job (KB)
+...
+007 (1646346.000.000) 2024-02-09 18:20:19 Shadow exception!
+	Error from slot1@bladek6.zeuthen.desy.de: runtime exceeded maximum (target.Runtime seconds)
+	0  -  Run Bytes Sent By Job
+	3296  -  Run Bytes Received By Job
+...
+012 (1646346.000.000) 2024-02-09 18:20:19 Job was held.
+	Error from slot1@bladek6.zeuthen.desy.de: runtime exceeded maximum (target.Runtime seconds)
+	Code 21 Subcode 103
+...
+009 (1646346.000.000) 2024-02-10 15:36:12 Job was aborted.
+	via condor_rm (by user varolbur)
+...
+000 (2046493.000.000) 2024-02-14 13:52:44 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_9399_82bd>
+...
+040 (2046493.000.000) 2024-02-14 13:52:52 Started transferring input files
+	Transferring to host: <141.34.15.75:9618?addrs=141.34.15.75-9618&alias=bladek2.zeuthen.desy.de&noUDP&sock=slot1_3_8508_67d3_24655>
+...
+040 (2046493.000.000) 2024-02-14 13:52:52 Finished transferring input files
+...
+001 (2046493.000.000) 2024-02-14 13:52:53 Job executing on host: <141.34.15.75:9618?addrs=141.34.15.75-9618&alias=bladek2.zeuthen.desy.de&noUDP&sock=startd_8391_1b46>
+...
+006 (2046493.000.000) 2024-02-14 13:53:02 Image size of job updated: 281480
+	18  -  MemoryUsage of job (MB)
+	17972  -  ResidentSetSize of job (KB)
+...
+006 (2046493.000.000) 2024-02-14 13:58:03 Image size of job updated: 2316740
+	228  -  MemoryUsage of job (MB)
+	232520  -  ResidentSetSize of job (KB)
+...
+006 (2046493.000.000) 2024-02-14 14:03:03 Image size of job updated: 2316740
+	228  -  MemoryUsage of job (MB)
+	232540  -  ResidentSetSize of job (KB)
+...
+040 (2046493.000.000) 2024-02-14 14:17:39 Started transferring output files
+...
+040 (2046493.000.000) 2024-02-14 14:17:39 Finished transferring output files
+...
+005 (2046493.000.000) 2024-02-14 14:17:39 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 03:29:28, Sys 0 00:03:41  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 03:29:28, Sys 0 00:03:41  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	1600  -  Run Bytes Sent By Job
+	3296  -  Run Bytes Received By Job
+	1600  -  Total Bytes Sent By Job
+	3296  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :     7.73        8         8 
+	   Disk (KB)            :    23     8396800   9404121 
+	   Memory (MB)          :   228        8192      8192 
+
+	Job terminated of its own accord at 2024-02-14T13:17:39Z with exit-code 0.
+...

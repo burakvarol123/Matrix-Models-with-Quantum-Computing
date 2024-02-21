@@ -1,0 +1,8 @@
+universe		         = vanilla
+executable             	 =/lustre/fs24/group/cqta/bvarol/workspace/matrixmodels/create_distribution.py
+when_to_transfer_output	 = ON_EXIT
+request_memory         	 = 8GB
+request_disk           	 = 8GB
+Request_Cpus            = 10
+
+queue

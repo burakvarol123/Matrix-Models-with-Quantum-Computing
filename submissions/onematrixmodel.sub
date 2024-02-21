@@ -1,0 +1,11 @@
+universe		         = vanilla
+executable             	 =/lustre/fs24/group/cqta/bvarol/workspace/matrixmodels/one_matrix_main.py
+log                    	 = /lustre/fs24/group/cqta/bvarol/workspace/matrixmodels/submissions/onematrix_1_5.log
+arguments		         = /lustre/fs24/group/cqta/bvarol/workspace/matrixmodels/results/run_D_1_N_5.dipf
+should_transfer_files  	 = Yes
+when_to_transfer_output	 = ON_EXIT
+request_memory         	 = 8GB
+request_disk           	 = 8GB
+Request_Cpus            = 10
+
+queue
