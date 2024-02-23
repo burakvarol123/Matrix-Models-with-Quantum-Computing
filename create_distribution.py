@@ -1,6 +1,11 @@
+#!/lustre/fs24/group/cqta/bvarol/package/miniconda3/bin/python3.11
+import sys
+module_directory_path = "/lustre/fs24/group/cqta/bvarol/workspace/matrixmodels"
+sys.path.append(module_directory_path)
+
+
 import hamiltonian_2 as hm2
 import numpy as np
-import Hamilton as hm
 import Ansatz as an
 from qiskit.primitives import Estimator
 from qiskit.algorithms import VarQITE
@@ -16,30 +21,6 @@ import os
 import one_matrix_model as om
 
 
-
-def create_distribution_varqite(qubits, depth, hamilton, beta):
-    """
-    creates the distribution e**-beta H.
-    :param qubits: number of qubits. Notice that in the algorithm 2*qubits will be used because of varqite reasons
-    :param depth: depth of the circuit
-    :param hamilton: hamiltonian that we want to have. use the hm.Ham functions here
-    :param beta: 1/kT
-    :return: the circuit with correct parameters, parameters, expectation value, the object "evolution result"
-    """
-    hamiltonian = Operator(np.kron(hamilton, hm.krId(qubits)))
-    var_principle = ImaginaryMcLachlanPrinciple()
-    time = beta / 2.0
-    aux_ops = [hamiltonian]
-    init_param_values = [np.pi / 2] * qubits + [0] * (depth * qubits * 2 + qubits)
-    ansatz = an.ansatz_review_exact(qubits * 2, depth)
-    evolution_problem = TimeEvolutionProblem(hamiltonian, time, aux_operators=aux_ops)
-    var_qite = VarQITE(ansatz, init_param_values, var_principle, Estimator())
-    evolution_result = var_qite.evolve(evolution_problem)
-    param = evolution_result.parameter_values[int(time * 100)][:]
-    binded = an.ansatz_review_exact(qubits * 2, depth).bind_parameters(param)
-    h_exp_val = np.array([ele[0][0] for ele in evolution_result.observables])
-
-    return binded, param, h_exp_val, evolution_result
 
 def create_distribution_2_varqite(qubits, depth, hamilton, beta):
     hamiltonian = hamilton ^ hm2.insert_i(qubits)
@@ -118,6 +99,19 @@ def compare_results(evolution_result, sol, h_exp_val, exact_h_exp_val, qubits, b
     plt.savefig(save_path)
 
 
+def compare_results_exp(evolution_result, exact_h_exp_val):
+    """
+    Compares the evolutions of ground state energies of scipy and varqite
+    """
+    times = evolution_result.times
+    h_exp_val = np.array([ele[0][0] for ele in evolution_result.observables])
+    pylab.plot(times, h_exp_val, label="VarQITE")
+    pylab.plot(times, exact_h_exp_val, label="Exact", linestyle='--')
+    pylab.xlabel("Time")
+    pylab.ylabel(r"$\langle H \rangle$ (energy)")
+    pylab.legend(loc="upper right")
+   
+
 def get_expval(binded, observable, qubits):
     """
     calculates the expextation value of the observable wrt. probability distribution
@@ -141,7 +135,7 @@ def get_expval_shot(binded, observable, shots, qubits):
     :return: expectation value
     """
     estimator = Estimator()
-    op = Operator(np.kron(observable, hm.krId(qubits)))
+    op = observable ^ hm2.insert_i(qubits)
     expectation_value = estimator.run(binded, op, shots=shots).result().values
     return expectation_value
 
@@ -167,12 +161,15 @@ for i in betas:
     sol = two_qubits_exp[1]
     compare_results(evolution_result, sol, h_exp_val , exact_h_exp_val, qubits , i)
     """
+"""
 lambdas = []
 for i in range(2):
-    lambdas.append(om.create_lambda_2(i, 1, 4))
+    lambdas.append(om.create_lambda_2(i, 1, 3))
 hamiltonian = 0
 for i in range(2):
     hamiltonian += (1 ** 2) * lambdas[i].power(2)
 
-file = "/Users/salsa/MatrixModels/matrixmodels/remote/results/scipyresult.npy"
-np.save(file,create_distribution_scipy(8,1,hamiltonian,0.7))
+file = "/Users/salsa/MatrixModels/matrixmodels/remote/results/scipy_D_1_N_3_depth_2_evolution "
+np.save(file, create_distribution_scipy(6, 2, hamiltonian, 0.7))
+"""
+

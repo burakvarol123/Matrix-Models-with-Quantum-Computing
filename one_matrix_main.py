@@ -4,7 +4,6 @@ module_directory_path = "/lustre/fs24/group/cqta/bvarol/workspace/matrixmodels"
 sys.path.append(module_directory_path)
 
 import numpy as np
-import Hamilton as hm
 from create_distribution import create_distribution_2_varqite
 from copy import copy
 import sys

@@ -1,6 +1,5 @@
 import numpy as np
 from qiskit.circuit.library import *
-from qiskit.extensions import UnitaryGate
 from qiskit import *
 from qiskit.quantum_info import SparsePauliOp
 

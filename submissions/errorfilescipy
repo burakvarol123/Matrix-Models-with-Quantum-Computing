@@ -1,0 +1,9 @@
+/batch/dir_151823/condor_exec.exe:12: DeprecationWarning: ``qiskit.algorithms`` has been migrated to an independent package: https://github.com/qiskit-community/qiskit-algorithms. The ``qiskit.algorithms`` import path is deprecated as of qiskit-terra 0.25.0 and will be removed no earlier than 3 months after the release date. Please run ``pip install qiskit_algorithms`` and use ``import qiskit_algorithms`` instead.
+  from qiskit.algorithms import VarQITE
+Traceback (most recent call last):
+  File "/batch/dir_151823/condor_exec.exe", line 195, in <module>
+    np.save(file, create_distribution_scipy(8, 1, hamiltonian, 0.7))
+  File "/lustre/fs24/group/cqta/bvarol/package/miniconda3/lib/python3.11/site-packages/numpy/lib/npyio.py", line 545, in save
+    arr = np.asanyarray(arr)
+          ^^^^^^^^^^^^^^^^^^
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.

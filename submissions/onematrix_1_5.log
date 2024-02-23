@@ -97,3 +97,66 @@
 
 	Job terminated of its own accord at 2024-02-15T10:51:41Z with exit-code 0.
 ...
+000 (2064323.000.000) 2024-02-22 23:29:53 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_9399_82bd>
+...
+040 (2064323.000.000) 2024-02-22 23:29:55 Started transferring input files
+	Transferring to host: <141.34.15.213:9618?addrs=141.34.15.213-9618&alias=bladeke.zeuthen.desy.de&noUDP&sock=slot1_6_8511_84f3_34820>
+...
+040 (2064323.000.000) 2024-02-22 23:29:55 Finished transferring input files
+...
+001 (2064323.000.000) 2024-02-22 23:29:56 Job executing on host: <141.34.15.213:9618?addrs=141.34.15.213-9618&alias=bladeke.zeuthen.desy.de&noUDP&sock=startd_8420_ff85>
+...
+006 (2064323.000.000) 2024-02-22 23:30:05 Image size of job updated: 65028
+	42  -  MemoryUsage of job (MB)
+	42432  -  ResidentSetSize of job (KB)
+...
+006 (2064323.000.000) 2024-02-22 23:30:15 Image size of job updated: 898200
+	42  -  MemoryUsage of job (MB)
+	42440  -  ResidentSetSize of job (KB)
+...
+005 (2064323.000.000) 2024-02-22 23:30:15 Job terminated.
+	(1) Normal termination (return value 1)
+		Usr 0 00:00:03, Sys 0 00:00:03  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:03, Sys 0 00:00:03  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	3296  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	3296  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                10        10 
+	   Disk (KB)            :       16  8396800   9398357 
+	   Memory (MB)          :       42     8192      8192 
+
+	Job terminated of its own accord at 2024-02-22T22:30:15Z with exit-code 1.
+...
+000 (2066030.000.000) 2024-02-23 11:50:15 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_9399_82bd>
+...
+040 (2066030.000.000) 2024-02-23 11:50:40 Started transferring input files
+	Transferring to host: <141.34.15.15:9618?addrs=141.34.15.15-9618&alias=bladej2.zeuthen.desy.de&noUDP&sock=slot1_20_8741_933d_21243>
+...
+040 (2066030.000.000) 2024-02-23 11:50:40 Finished transferring input files
+...
+001 (2066030.000.000) 2024-02-23 11:50:41 Job executing on host: <141.34.15.15:9618?addrs=141.34.15.15-9618&alias=bladej2.zeuthen.desy.de&noUDP&sock=startd_8618_cf45>
+...
+006 (2066030.000.000) 2024-02-23 11:50:49 Image size of job updated: 60224
+	40  -  MemoryUsage of job (MB)
+	40920  -  ResidentSetSize of job (KB)
+...
+006 (2066030.000.000) 2024-02-23 11:55:49 Image size of job updated: 7541520
+	635  -  MemoryUsage of job (MB)
+	649492  -  ResidentSetSize of job (KB)
+...
+006 (2066030.000.000) 2024-02-23 12:00:50 Image size of job updated: 7541520
+	643  -  MemoryUsage of job (MB)
+	657840  -  ResidentSetSize of job (KB)
+...
+006 (2066030.000.000) 2024-02-23 12:15:51 Image size of job updated: 7541520
+	649  -  MemoryUsage of job (MB)
+	663876  -  ResidentSetSize of job (KB)
+...
+006 (2066030.000.000) 2024-02-23 12:20:52 Image size of job updated: 7541520
+	658  -  MemoryUsage of job (MB)
+	672916  -  ResidentSetSize of job (KB)
+...

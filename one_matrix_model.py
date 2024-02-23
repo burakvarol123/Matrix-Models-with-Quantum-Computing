@@ -1,7 +1,5 @@
 import numpy as np
 from qiskit.circuit.library import *
-from time import process_time
-from qiskit.quantum_info import SparsePauliOp
 import hamiltonian_2 as hm2
 
 def create_lambda_2(
