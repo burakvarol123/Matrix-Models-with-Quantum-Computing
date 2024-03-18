@@ -23,12 +23,12 @@ from qiskit.algorithms.gradients import ReverseEstimatorGradient, ReverseQGT
 
 
 
-def create_distribution_2_varqite(qubits, depth, hamilton, beta, param):
+def create_distribution_2_varqite(qubits, depth, hamilton, beta):
     hamiltonian = hamilton ^ hm2.insert_i(qubits)
     var_principle = ImaginaryMcLachlanPrinciple(qgt=ReverseQGT(), gradient=ReverseEstimatorGradient())
     time = (1 /2.0)* beta
     aux_ops = [hamiltonian]
-    init_param_values = [np.pi / 2 +param] * qubits + [0] * (depth * 2 * qubits  + qubits + int(depth*2*qubits*(2*qubits-1)/2))
+    init_param_values = [np.pi / 2] * qubits + [0] * (depth * 2 * qubits  + qubits + int(depth*2*qubits*(2*qubits-1)/2))
     ansatz = an.ansatz_review_exact_full_cry(qubits * 2, depth)
     evolution_problem = TimeEvolutionProblem(hamiltonian, time, aux_operators=aux_ops)
     var_qite = VarQITE(ansatz, init_param_values, var_principle, Estimator())
@@ -36,7 +36,7 @@ def create_distribution_2_varqite(qubits, depth, hamilton, beta, param):
     return  evolution_result
 
 
-def create_distribution_scipy(qubits, depth, hamilton, beta, param):
+def create_distribution_scipy(qubits, depth, hamilton, beta):
     """
     creates the distribution via scipy, so not "quantumly"
     :returns scipy calculated exp val, and the evolution object
@@ -45,7 +45,7 @@ def create_distribution_scipy(qubits, depth, hamilton, beta, param):
     hamiltonian =  hamilton ^ hm2.insert_i(qubits)
     time = beta / 2.0
     aux_ops = [hamiltonian]
-    init_param_values = [np.pi / 2 + param] * qubits + [0] * (depth * qubits * 2 + qubits)
+    init_param_values = [np.pi / 2] * qubits + [0] * (depth * qubits * 2 + qubits)
     init_state = Statevector(ansatz.assign_parameters(init_param_values))
     evolution_problem = TimeEvolutionProblem(hamiltonian, time, initial_state=init_state, aux_operators=aux_ops)
     exact_evol = SciPyImaginaryEvolver(num_timesteps=int(time * 100))
@@ -94,6 +94,15 @@ def compare_results(evolution_result, sol, h_exp_val, exact_h_exp_val, qubits, b
     file_name = "beta=" + str(beta) + ".png"
     save_path = os.path.join(save_directory, file_name)
     plt.savefig(save_path)
+
+def quick_compare(varqite_res, scipy_result):
+    times = varqite_res.times
+    h_exp_val = np.array([ele[0][0] for ele in varqite_res.observables])
+    plt.plot(times, h_exp_val, label = "varqite")
+    plt.plot(0.01*np.arange(len(scipy_result[0])), scipy_result[0],label = "scipy")
+    plt.legend()
+    difference = h_exp_val[-1]-scipy_result[0][-1]
+    print(difference)
 
 
 def compare_results_exp(evolution_result, exact_h_exp_val):
