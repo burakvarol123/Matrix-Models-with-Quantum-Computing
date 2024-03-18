@@ -160,3 +160,51 @@
 	658  -  MemoryUsage of job (MB)
 	672916  -  ResidentSetSize of job (KB)
 ...
+006 (2066030.000.000) 2024-02-23 17:01:20 Image size of job updated: 8157232
+	658  -  MemoryUsage of job (MB)
+	672984  -  ResidentSetSize of job (KB)
+...
+006 (2066030.000.000) 2024-02-23 17:06:20 Image size of job updated: 8157232
+	698  -  MemoryUsage of job (MB)
+	713760  -  ResidentSetSize of job (KB)
+...
+006 (2066030.000.000) 2024-02-23 22:36:56 Image size of job updated: 8157232
+	699  -  MemoryUsage of job (MB)
+	715264  -  ResidentSetSize of job (KB)
+...
+006 (2066030.000.000) 2024-02-24 12:18:17 Image size of job updated: 8157232
+	703  -  MemoryUsage of job (MB)
+	719672  -  ResidentSetSize of job (KB)
+...
+006 (2066030.000.000) 2024-02-24 12:33:19 Image size of job updated: 8157232
+	708  -  MemoryUsage of job (MB)
+	724352  -  ResidentSetSize of job (KB)
+...
+006 (2066030.000.000) 2024-02-24 23:09:22 Image size of job updated: 8157232
+	715  -  MemoryUsage of job (MB)
+	732156  -  ResidentSetSize of job (KB)
+...
+006 (2066030.000.000) 2024-02-25 01:29:37 Image size of job updated: 8157232
+	716  -  MemoryUsage of job (MB)
+	732436  -  ResidentSetSize of job (KB)
+...
+006 (2066030.000.000) 2024-02-25 10:00:28 Image size of job updated: 8157232
+	739  -  MemoryUsage of job (MB)
+	756476  -  ResidentSetSize of job (KB)
+...
+006 (2066030.000.000) 2024-02-25 10:05:29 Image size of job updated: 8157232
+	777  -  MemoryUsage of job (MB)
+	794720  -  ResidentSetSize of job (KB)
+...
+007 (2066030.000.000) 2024-02-25 11:50:39 Shadow exception!
+	Error from slot1@bladej2.zeuthen.desy.de: runtime exceeded maximum (target.Runtime seconds)
+	0  -  Run Bytes Sent By Job
+	3296  -  Run Bytes Received By Job
+...
+012 (2066030.000.000) 2024-02-25 11:50:39 Job was held.
+	Error from slot1@bladej2.zeuthen.desy.de: runtime exceeded maximum (target.Runtime seconds)
+	Code 21 Subcode 103
+...
+009 (2066030.000.000) 2024-03-03 11:51:37 Job was aborted.
+	The system macro SYSTEM_PERIODIC_REMOVE expression '((JobStatus == 5 && (CurrentTime - EnteredCurrentStatus) > 7 * 24 * 3600))' evaluated to TRUE
+...

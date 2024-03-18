@@ -85,13 +85,12 @@ if __name__ == "__main__":
         for i in range(parameters['D']+1):
             hamiltonian += (parameters["a"] ** 2) * lambdas[i].power(parameters['power'])
 
-        start = process_time()
-        varqite = create_distribution_2_varqite(qubits, parameters['depth'],hamiltonian, parameters['beta'])
-        stop = process_time()
-       
-        parameters['thetas'] = varqite[1]
-        parameters['h_exp_val'] = varqite[2]
-        evolution_result = varqite[3]
-        parameters['Process time'] = stop - start
-        write_parameters_to_file(filename, parameters)
-        np.save(filename + '_evolution' , evolution_result)
+        evolutions =[]
+        timesteps = np.linspace(30,300, 10)
+        for time in timesteps:
+            varqite = create_distribution_2_varqite(qubits, parameters['depth'],hamiltonian, parameters['beta'], time)
+            evolution_result = varqite
+            evolutions.append(evolution_result)
+            print("done:", time)
+        
+        np.save(filename + '_evolution' , evolutions)

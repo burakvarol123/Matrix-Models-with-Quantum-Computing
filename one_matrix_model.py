@@ -5,7 +5,8 @@ import hamiltonian_2 as hm2
 def create_lambda_2(
         index,
         dimension,
-        qubits_per_dim
+        qubits_per_dim,
+        
 ):
     if index == qubits_per_dim:
         raise Exception("your index is too high, index starts from 0. So maximal Z insertion is num_qubits-1")
@@ -20,7 +21,7 @@ def create_lambda_2(
                 matrix = matrix ^ hm2.position_x(qubits_per_dim)
             else:
                 matrix = matrix ^ hm2.insert_i(qubits_per_dim)
-    return matrix
+    return matrix 
 
 def vandermonde_2(
         dimension,

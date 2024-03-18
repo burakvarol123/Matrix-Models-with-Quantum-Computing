@@ -1,4 +1,4 @@
-import numpy as np
+
 from qiskit.circuit.library import *
 from qiskit import *
 from qiskit.quantum_info import SparsePauliOp
@@ -58,11 +58,12 @@ def hamiltonian(
         pow
         ):
     x = position_x(number_of_qubits)
-    mat = lattice_spacing ** 2 * x.power(pow) 
+    mat = lattice_spacing ** 2 * x.power(pow) * 1/10
     return mat
 
 if __name__ == "__main__":
-   matrix = hamiltonian(3,1,3)
-   pos = position_x(5)
+   matrix = hamiltonian(3,1,2)
+   print(matrix.to_matrix())
+   
  
-   print(pos)
+   

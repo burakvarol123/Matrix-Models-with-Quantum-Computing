@@ -19,27 +19,24 @@ import matplotlib.pyplot as plt
 from utility import generate_combinations
 import os 
 import one_matrix_model as om
+from qiskit.algorithms.gradients import ReverseEstimatorGradient, ReverseQGT
 
 
 
-def create_distribution_2_varqite(qubits, depth, hamilton, beta):
+def create_distribution_2_varqite(qubits, depth, hamilton, beta, param):
     hamiltonian = hamilton ^ hm2.insert_i(qubits)
-    var_principle = ImaginaryMcLachlanPrinciple()
-    time = beta / 2.0
+    var_principle = ImaginaryMcLachlanPrinciple(qgt=ReverseQGT(), gradient=ReverseEstimatorGradient())
+    time = (1 /2.0)* beta
     aux_ops = [hamiltonian]
-    init_param_values = [np.pi / 2] * qubits + [0] * (depth * qubits * 2 + qubits)
-    ansatz = an.ansatz_review_exact(qubits * 2, depth)
+    init_param_values = [np.pi / 2 +param] * qubits + [0] * (depth * 2 * qubits  + qubits + int(depth*2*qubits*(2*qubits-1)/2))
+    ansatz = an.ansatz_review_exact_full_cry(qubits * 2, depth)
     evolution_problem = TimeEvolutionProblem(hamiltonian, time, aux_operators=aux_ops)
     var_qite = VarQITE(ansatz, init_param_values, var_principle, Estimator())
     evolution_result = var_qite.evolve(evolution_problem)
-    param = evolution_result.parameter_values[int(time * 100)][:]
-    binded = an.ansatz_review_exact(qubits * 2, depth).bind_parameters(param)
-    h_exp_val = np.array([ele[0][0] for ele in evolution_result.observables])
-
-    return binded, param, h_exp_val, evolution_result
+    return  evolution_result
 
 
-def create_distribution_scipy(qubits, depth, hamilton, beta):
+def create_distribution_scipy(qubits, depth, hamilton, beta, param):
     """
     creates the distribution via scipy, so not "quantumly"
     :returns scipy calculated exp val, and the evolution object
@@ -48,7 +45,7 @@ def create_distribution_scipy(qubits, depth, hamilton, beta):
     hamiltonian =  hamilton ^ hm2.insert_i(qubits)
     time = beta / 2.0
     aux_ops = [hamiltonian]
-    init_param_values = [np.pi / 2] * qubits + [0] * (depth * qubits * 2 + qubits)
+    init_param_values = [np.pi / 2 + param] * qubits + [0] * (depth * qubits * 2 + qubits)
     init_state = Statevector(ansatz.assign_parameters(init_param_values))
     evolution_problem = TimeEvolutionProblem(hamiltonian, time, initial_state=init_state, aux_operators=aux_ops)
     exact_evol = SciPyImaginaryEvolver(num_timesteps=int(time * 100))
@@ -164,12 +161,11 @@ for i in betas:
 """
 lambdas = []
 for i in range(2):
-    lambdas.append(om.create_lambda_2(i, 1, 3))
+    lambdas.append(om.create_lambda_2(i, 1, 2))
 hamiltonian = 0
 for i in range(2):
     hamiltonian += (1 ** 2) * lambdas[i].power(2)
 
-file = "/Users/salsa/MatrixModels/matrixmodels/remote/results/scipy_D_1_N_3_depth_2_evolution "
-np.save(file, create_distribution_scipy(6, 2, hamiltonian, 0.7))
+file = "/Users/salsa/MatrixModels/matrixmodels/remote/results/scipy_D_1_N_2_depth_1_evolution "
+np.save(file, create_distribution_scipy(4, 1, hamiltonian, 0.7))
 """
-
