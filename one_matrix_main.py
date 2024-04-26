@@ -1,64 +1,20 @@
 #!/lustre/fs24/group/cqta/bvarol/package/miniconda3/bin/python3.11
+
+"""
+This caclulates the one matrix model for fixed D, a, N and varying g.
+
+
+"""
 import sys
 module_directory_path = "/lustre/fs24/group/cqta/bvarol/workspace/matrixmodels"
 sys.path.append(module_directory_path)
 
 import numpy as np
-from create_distribution import create_distribution_2_varqite
+from create_distribution import create_distribution_2_varqite,create_distribution_scipy
 from copy import copy
 import sys
-from time import process_time
-from one_matrix_model import create_lambda_2
-
-
-def read_parameters_from_file(path: str, params: dict):
-    '''
-    Reads arbitrary parameters into a dictionary. The input file
-    has to be of the format:
-
-    key1=value1
-    key2=value2
-
-    path: The path of the file to read
-    params: A key:constructor parameter template dictionary.
-            Only variables specified in params  will be read,
-            they will be read in by the constructor specified in params
-    returns: A dictionary of variables read from path
-    ...
-    '''
-    with open(path, "r") as fd:
-        content = fd.read()
-        print(content)
-        content = content.replace('\n', '')
-        lines = content.split(';')
-        for line in lines:
-            if len(line) == 0:
-                continue
-            key, value = line.split('=')
-            # print(key, value)
-            if key in params.keys():
-                params[key] = params[key](value)
-    return params
-
-
-def write_parameters_to_file(path: str, params: dict):
-    '''
-    Writes arbitrary parameters in a dictionary to a file.
-    The resulting file will be of the format
-
-    key1=value1
-    key2=value2
-    ...
-
-    And is therefor parsable by 'read_parameters_from_file'
-    path: The path of the file to read
-    params: A key:constructor parameter template dictionary.
-            Only variables specified in params  will be read,
-            they will be read in by the constructor specified in params
-    '''
-    with open(path, 'w') as fd:
-        for key, value in params.items():
-            fd.write(f'{key}={value};\n')
+import utility as ut
+import hamiltonianstryout as tr
 
 if __name__ == "__main__":  
     filenames = sorted(sys.argv[1:])
@@ -68,7 +24,9 @@ if __name__ == "__main__":
         "qubits_per_dim": int,
         'beta': float,
         "a": float,
+        "g": float,
         "power": int,
+        "power_interaction": int,
         'out': str
 
     }
@@ -76,22 +34,16 @@ if __name__ == "__main__":
         print("At least one filename has to be specified")
     for filename in filenames:
         parameters = copy(parameter_template)
-        parameters = read_parameters_from_file(filename, parameters)
+        parameters = ut.read_parameters_from_file(filename, parameters)
+        print(parameters["power_interaction"])
+        results = []
         qubits = (parameters['D']+1)*parameters['qubits_per_dim']
-        lambdas = []
-        for i in range(parameters['D']+1):
-            lambdas.append(create_lambda_2(i, parameters['D'], parameters["qubits_per_dim"]))
-        hamiltonian = 0
-        for i in range(parameters['D']+1):
-            hamiltonian += (parameters["a"] ** 2) * lambdas[i].power(parameters['power'])
-
-        start = process_time()
-        varqite = create_distribution_2_varqite(qubits, parameters['depth'],hamiltonian, parameters['beta'])
-        stop = process_time()
-       
-        parameters['thetas'] = varqite[1]
-        parameters['h_exp_val'] = varqite[2]
-        evolution_result = varqite[3]
-        parameters['Process time'] = stop - start
-        write_parameters_to_file(filename, parameters)
-        np.save(filename + '_evolution' , evolution_result)
+        squareterm = tr.matrix_terms(qubits_per_dim=parameters['qubits_per_dim'], dimension=parameters['D'], lattice_spacing=parameters['a'] , pow = 2)
+        interaction = tr.matrix_terms(parameters['qubits_per_dim'], parameters['D'],parameters['a'] , parameters['power_interaction']) 
+        hamiltonian = squareterm - parameters["g"] * interaction
+        evolution_result = create_distribution_2_varqite(qubits, parameters['depth'],hamiltonian, parameters['beta'])
+        results.append(evolution_result)
+        scipy_result = create_distribution_scipy(qubits, parameters['depth'],hamiltonian, parameters['beta'])
+        results.append(scipy_result)
+        ut.write_parameters_to_file(filename, parameters)
+        np.save(filename + '_evolution' , results)
