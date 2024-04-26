@@ -208,3 +208,291 @@
 009 (2066030.000.000) 2024-03-03 11:51:37 Job was aborted.
 	The system macro SYSTEM_PERIODIC_REMOVE expression '((JobStatus == 5 && (CurrentTime - EnteredCurrentStatus) > 7 * 24 * 3600))' evaluated to TRUE
 ...
+000 (6352498.000.000) 2024-04-23 15:43:44 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_3270866_9873>
+...
+040 (6352498.000.000) 2024-04-23 15:44:00 Started transferring input files
+	Transferring to host: <141.34.15.223:9618?addrs=141.34.15.223-9618&alias=pizza31.zeuthen.desy.de&noUDP&sock=slot1_6_8171_f565_57030>
+...
+040 (6352498.000.000) 2024-04-23 15:44:00 Finished transferring input files
+...
+001 (6352498.000.000) 2024-04-23 15:44:01 Job executing on host: <141.34.15.223:9618?addrs=141.34.15.223-9618&alias=pizza31.zeuthen.desy.de&noUDP&sock=startd_7964_3855>
+...
+006 (6352498.000.000) 2024-04-23 15:44:10 Image size of job updated: 281480
+	22  -  MemoryUsage of job (MB)
+	21744  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-23 15:49:11 Image size of job updated: 1381028
+	133  -  MemoryUsage of job (MB)
+	135440  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-23 15:54:11 Image size of job updated: 1381028
+	133  -  MemoryUsage of job (MB)
+	135460  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-23 16:04:13 Image size of job updated: 1381028
+	133  -  MemoryUsage of job (MB)
+	135472  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-23 16:09:13 Image size of job updated: 1381028
+	133  -  MemoryUsage of job (MB)
+	135732  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-23 16:14:13 Image size of job updated: 1381028
+	133  -  MemoryUsage of job (MB)
+	135808  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-23 16:44:15 Image size of job updated: 1381028
+	145  -  MemoryUsage of job (MB)
+	147720  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-23 16:54:17 Image size of job updated: 1446564
+	146  -  MemoryUsage of job (MB)
+	149412  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-23 16:59:17 Image size of job updated: 1446564
+	148  -  MemoryUsage of job (MB)
+	151116  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-23 17:34:20 Image size of job updated: 1446564
+	150  -  MemoryUsage of job (MB)
+	152696  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-23 17:39:21 Image size of job updated: 1453732
+	152  -  MemoryUsage of job (MB)
+	155584  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-23 19:49:34 Image size of job updated: 1453732
+	154  -  MemoryUsage of job (MB)
+	157392  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-23 20:34:38 Image size of job updated: 1453732
+	154  -  MemoryUsage of job (MB)
+	157396  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-23 21:14:43 Image size of job updated: 1453732
+	155  -  MemoryUsage of job (MB)
+	157732  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-23 23:24:56 Image size of job updated: 1453732
+	155  -  MemoryUsage of job (MB)
+	157820  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-23 23:29:57 Image size of job updated: 1453732
+	155  -  MemoryUsage of job (MB)
+	157824  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-24 04:50:30 Image size of job updated: 1454756
+	155  -  MemoryUsage of job (MB)
+	157824  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-24 05:00:32 Image size of job updated: 1454756
+	155  -  MemoryUsage of job (MB)
+	158176  -  ResidentSetSize of job (KB)
+...
+006 (6352498.000.000) 2024-04-24 05:35:36 Image size of job updated: 1454756
+	158  -  MemoryUsage of job (MB)
+	160776  -  ResidentSetSize of job (KB)
+...
+040 (6352498.000.000) 2024-04-24 10:24:21 Started transferring output files
+...
+040 (6352498.000.000) 2024-04-24 10:24:21 Finished transferring output files
+...
+005 (6352498.000.000) 2024-04-24 10:24:21 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 2 10:47:13, Sys 0 03:10:47  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 2 10:47:13, Sys 0 03:10:47  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	1012  -  Run Bytes Sent By Job
+	3325  -  Run Bytes Received By Job
+	1012  -  Total Bytes Sent By Job
+	3325  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :     3.69        5         5 
+	   Disk (KB)            :    23     8396800  10743476 
+	   Memory (MB)          :   158        8192      8192 
+
+	Job terminated of its own accord at 2024-04-24T08:24:21Z with exit-code 0.
+...
+000 (6431515.000.000) 2024-04-24 15:48:04 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_3270866_9873>
+...
+040 (6431515.000.000) 2024-04-24 16:03:09 Started transferring input files
+	Transferring to host: <141.34.15.76:9618?addrs=141.34.15.76-9618&alias=bladek3.zeuthen.desy.de&noUDP&sock=slot1_16_8585_a8b6_64260>
+...
+040 (6431515.000.000) 2024-04-24 16:03:09 Finished transferring input files
+...
+001 (6431515.000.000) 2024-04-24 16:03:10 Job executing on host: <141.34.15.76:9618?addrs=141.34.15.76-9618&alias=bladek3.zeuthen.desy.de&noUDP&sock=startd_8497_d050>
+...
+006 (6431515.000.000) 2024-04-24 16:03:19 Image size of job updated: 425008
+	44  -  MemoryUsage of job (MB)
+	44544  -  ResidentSetSize of job (KB)
+...
+006 (6431515.000.000) 2024-04-24 16:08:20 Image size of job updated: 919604
+	107  -  MemoryUsage of job (MB)
+	109216  -  ResidentSetSize of job (KB)
+...
+006 (6431515.000.000) 2024-04-24 16:13:20 Image size of job updated: 1135888
+	112  -  MemoryUsage of job (MB)
+	113856  -  ResidentSetSize of job (KB)
+...
+006 (6431515.000.000) 2024-04-24 16:18:20 Image size of job updated: 1370180
+	132  -  MemoryUsage of job (MB)
+	135120  -  ResidentSetSize of job (KB)
+...
+006 (6431515.000.000) 2024-04-24 16:23:21 Image size of job updated: 1370180
+	132  -  MemoryUsage of job (MB)
+	135140  -  ResidentSetSize of job (KB)
+...
+006 (6431515.000.000) 2024-04-24 16:28:21 Image size of job updated: 1370180
+	132  -  MemoryUsage of job (MB)
+	135148  -  ResidentSetSize of job (KB)
+...
+006 (6431515.000.000) 2024-04-24 16:33:21 Image size of job updated: 1427496
+	134  -  MemoryUsage of job (MB)
+	136464  -  ResidentSetSize of job (KB)
+...
+006 (6431515.000.000) 2024-04-24 16:38:22 Image size of job updated: 1535160
+	204  -  MemoryUsage of job (MB)
+	208812  -  ResidentSetSize of job (KB)
+...
+006 (6431515.000.000) 2024-04-24 16:43:23 Image size of job updated: 1535160
+	204  -  MemoryUsage of job (MB)
+	208828  -  ResidentSetSize of job (KB)
+...
+006 (6431515.000.000) 2024-04-24 17:08:25 Image size of job updated: 1594668
+	208  -  MemoryUsage of job (MB)
+	212028  -  ResidentSetSize of job (KB)
+...
+006 (6431515.000.000) 2024-04-24 17:13:26 Image size of job updated: 1594668
+	209  -  MemoryUsage of job (MB)
+	213324  -  ResidentSetSize of job (KB)
+...
+006 (6431515.000.000) 2024-04-24 17:23:26 Image size of job updated: 2347632
+	390  -  MemoryUsage of job (MB)
+	398816  -  ResidentSetSize of job (KB)
+...
+006 (6431515.000.000) 2024-04-24 17:28:28 Image size of job updated: 2347632
+	512  -  MemoryUsage of job (MB)
+	524144  -  ResidentSetSize of job (KB)
+...
+006 (6431515.000.000) 2024-04-24 19:53:43 Image size of job updated: 12978280
+	11185  -  MemoryUsage of job (MB)
+	11452500  -  ResidentSetSize of job (KB)
+...
+006 (6431515.000.000) 2024-04-24 19:58:44 Image size of job updated: 13001848
+	11185  -  MemoryUsage of job (MB)
+	11452500  -  ResidentSetSize of job (KB)
+...
+006 (6431515.000.000) 2024-04-24 20:03:44 Image size of job updated: 13174996
+	11185  -  MemoryUsage of job (MB)
+	11452500  -  ResidentSetSize of job (KB)
+...
+006 (6431515.000.000) 2024-04-24 20:08:44 Image size of job updated: 13276356
+	11185  -  MemoryUsage of job (MB)
+	11452500  -  ResidentSetSize of job (KB)
+...
+040 (6431515.000.000) 2024-04-24 20:46:05 Started transferring output files
+...
+040 (6431515.000.000) 2024-04-24 20:46:05 Finished transferring output files
+...
+005 (6431515.000.000) 2024-04-24 20:46:05 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 16:40:24, Sys 0 00:20:55  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 16:40:24, Sys 0 00:20:55  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	1012  -  Run Bytes Sent By Job
+	2177  -  Run Bytes Received By Job
+	1012  -  Total Bytes Sent By Job
+	2177  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :     1.00        5         5 
+	   Disk (KB)            :    22     8396800   9398357 
+	   Memory (MB)          : 11185        8192      8192 
+
+	Job terminated of its own accord at 2024-04-24T18:46:05Z with exit-code 0.
+...
+000 (6514024.000.000) 2024-04-25 16:55:31 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_3270866_9873>
+...
+000 (6514400.000.000) 2024-04-25 17:10:57 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_3270866_9873>
+...
+040 (6514400.000.000) 2024-04-26 01:55:44 Started transferring input files
+	Transferring to host: <141.34.14.29:9618?addrs=141.34.14.29-9618+[2001-638-700-f00e--1-1d]-9618&alias=turing03.zeuthen.desy.de&noUDP&sock=slot1_5_6431_f89f_1620>
+...
+040 (6514024.000.000) 2024-04-26 01:55:44 Started transferring input files
+	Transferring to host: <141.34.14.33:9618?addrs=141.34.14.33-9618+[2001-638-700-f00e--1-21]-9618&alias=ampere02.zeuthen.desy.de&noUDP&sock=slot1_15_7376_cf25_2307>
+...
+040 (6514400.000.000) 2024-04-26 01:55:44 Finished transferring input files
+...
+040 (6514024.000.000) 2024-04-26 01:55:44 Finished transferring input files
+...
+001 (6514400.000.000) 2024-04-26 01:55:45 Job executing on host: <141.34.14.29:9618?addrs=141.34.14.29-9618+[2001-638-700-f00e--1-1d]-9618&alias=turing03.zeuthen.desy.de&noUDP&sock=startd_6351_d612>
+...
+001 (6514024.000.000) 2024-04-26 01:55:45 Job executing on host: <141.34.14.33:9618?addrs=141.34.14.33-9618+[2001-638-700-f00e--1-21]-9618&alias=ampere02.zeuthen.desy.de&noUDP&sock=startd_7292_48b1>
+...
+006 (6514400.000.000) 2024-04-26 01:55:51 Image size of job updated: 95480
+	66  -  MemoryUsage of job (MB)
+	67308  -  ResidentSetSize of job (KB)
+...
+040 (6514400.000.000) 2024-04-26 01:55:51 Started transferring output files
+...
+040 (6514400.000.000) 2024-04-26 01:55:51 Finished transferring output files
+...
+005 (6514400.000.000) 2024-04-26 01:55:51 Job terminated.
+	(1) Normal termination (return value 1)
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	255  -  Run Bytes Sent By Job
+	2277  -  Run Bytes Received By Job
+	255  -  Total Bytes Sent By Job
+	2277  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :     0.02        5         5 
+	   Disk (KB)            :    23     8396800  10285983 
+	   GPUs                 :                           0 
+	   Memory (MB)          :    66        8192      8192 
+
+	Job terminated of its own accord at 2024-04-25T23:55:51Z with exit-code 1.
+...
+006 (6514024.000.000) 2024-04-26 01:55:51 Image size of job updated: 92512
+	66  -  MemoryUsage of job (MB)
+	66960  -  ResidentSetSize of job (KB)
+...
+040 (6514024.000.000) 2024-04-26 01:55:51 Started transferring output files
+...
+040 (6514024.000.000) 2024-04-26 01:55:51 Finished transferring output files
+...
+005 (6514024.000.000) 2024-04-26 01:55:51 Job terminated.
+	(1) Normal termination (return value 1)
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	256  -  Run Bytes Sent By Job
+	2277  -  Run Bytes Received By Job
+	256  -  Total Bytes Sent By Job
+	2277  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 5         5 
+	   Disk (KB)            :       16  8396800  10678064 
+	   GPUs                 :                           0 
+	   Memory (MB)          :       66     8192      8192 
+
+	Job terminated of its own accord at 2024-04-25T23:55:51Z with exit-code 1.
+...
+000 (6560465.000.000) 2024-04-26 10:21:53 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_3270866_9873>
+...
+000 (6560737.000.000) 2024-04-26 10:24:38 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_3270866_9873>
+...
+009 (6560465.000.000) 2024-04-26 10:28:39 Job was aborted.
+	via condor_rm (by user varolbur)
+...
+009 (6560737.000.000) 2024-04-26 10:28:50 Job was aborted.
+	via condor_rm (by user varolbur)
+...
+000 (6561282.000.000) 2024-04-26 10:30:17 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_3270866_9873>
+...
+000 (6561408.000.000) 2024-04-26 10:31:56 Job submitted from host: <141.34.103.36:9618?addrs=141.34.103.36-9618&alias=wgs3a.zeuthen.desy.de&noUDP&sock=schedd_3270866_9873>
+...
