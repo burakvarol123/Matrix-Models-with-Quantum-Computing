@@ -23,47 +23,47 @@ from qiskit.algorithms.gradients import ReverseEstimatorGradient, ReverseQGT
 
 
 
-def create_distribution_2_varqite(qubits, depth, hamilton, beta):
-    hamiltonian = hamilton ^ hm2.insert_i(qubits)
+def create_distribution_2_varqite(qubits, depth, hamilton, beta, ansatz):
+    hamiltonian = hamilton #^ hm2.insert_i(qubits)
     var_principle = ImaginaryMcLachlanPrinciple(qgt=ReverseQGT(), gradient=ReverseEstimatorGradient())
     time = (1 /2.0)* beta
     aux_ops = [hamiltonian]
-    init_param_values = [np.pi / 2] * qubits + [0] * (depth * 2 * qubits  + qubits + int(depth*2*qubits*(2*qubits-1)/2))
-    ansatz = an.ansatz_review_exact_full_cry(qubits * 2, depth)
+    #init_param_values = [np.pi / 2] * qubits + [0] * (depth * 2 * qubits  + qubits + int(depth*2*qubits*(2*qubits-1)/2))
+    init_param_values =  [0] * (depth * qubits + int(depth*qubits*(qubits-1)/2))
     evolution_problem = TimeEvolutionProblem(hamiltonian, time, aux_operators=aux_ops)
-    var_qite = VarQITE(ansatz, init_param_values, var_principle, Estimator())
+    var_qite = VarQITE(ansatz, init_param_values, var_principle, Estimator(),num_timesteps= 300)
     evolution_result = var_qite.evolve(evolution_problem)
-    return  evolution_result
+    return evolution_result
 
 
-def create_distribution_scipy(qubits, depth, hamilton, beta):
+def create_distribution_scipy(qubits, depth, hamilton, beta, ansatz):
     """
     creates the distribution via scipy, so not "quantumly"
     :returns scipy calculated exp val, and the evolution object
     """
-    ansatz = an.ansatz_review_exact(qubits * 2, depth)
-    hamiltonian =  hamilton ^ hm2.insert_i(qubits)
+    hamiltonian =  hamilton #^ hm2.insert_i(qubits)
     time = beta / 2.0
     aux_ops = [hamiltonian]
-    init_param_values = [np.pi / 2] * qubits + [0] * (depth * qubits * 2 + qubits)
+    #init_param_values = [np.pi / 2] * qubits + [0] * (depth * qubits * 2 + qubits)
+    init_param_values = [0] * (depth * qubits + int(depth*qubits*(qubits-1)/2))
     init_state = Statevector(ansatz.assign_parameters(init_param_values))
     evolution_problem = TimeEvolutionProblem(hamiltonian, time, initial_state=init_state, aux_operators=aux_ops)
-    exact_evol = SciPyImaginaryEvolver(num_timesteps=int(time * 100))
+    exact_evol = SciPyImaginaryEvolver(num_timesteps=int(time * 600))
     sol = exact_evol.evolve(evolution_problem)
-    exact_h_exp_val = sol.observables[0][0].real
-    return exact_h_exp_val, sol
+    #exact_h_exp_val = sol.observables[0][0].real
+    return  sol
 
 
-def compare_results(evolution_result, sol, h_exp_val, exact_h_exp_val, qubits, beta):
+def compare_results(evolution_result, sol, qubits, beta):
     """
     compares the results of varqite with computer
     :param evolution_result: evolution result from varqite
     :param sol: evolution result from scipy
-    :param h_exp_val: exp value from varqite
-    :param exact_h_exp_val: exp value from scipy
     :return: plots expvals varqite vs scipy, distributions varqite vs scipy
     """
     times = evolution_result.times
+    h_exp_val = np.array([ele[0][0] for ele in evolution_result.observables])
+    exact_h_exp_val = sol.observables[0][0].real
     pylab.plot(times, h_exp_val, label="VarQITE")
     pylab.plot(times, exact_h_exp_val, label="Exact", linestyle='--')
     plt.axhline(y=0.25, color='r', linestyle='-')
@@ -72,31 +72,36 @@ def compare_results(evolution_result, sol, h_exp_val, exact_h_exp_val, qubits, b
     pylab.legend(loc="upper right")
     plt.subplots()
     evolved_state = evolution_result.evolved_state
-    varqite_result = Statevector(evolved_state).probabilities_dict(np.arange(qubits))
-    scipy_result = Statevector(sol.evolved_state).probabilities_dict(np.arange(qubits))
+    varqite_result = Statevector(evolved_state).probabilities_dict()
+    scipy_result = Statevector(sol.evolved_state).probabilities_dict()
     
     x = generate_combinations(qubits - 1)
     y = []
     y_2 = []
     for i in range(len(x)):
         y.append(varqite_result[x[i]])
-    for i in range(len(x)):
-        y_2.append(scipy_result[x[i]])
+    #for i in range(len(x)):
+       # y_2.append(scipy_result[x[i]])
     
     plt.bar(x, y, width=0.9, color = "red", label = "varqite")
-    plt.bar(x, y_2, width=0.9, color = "blue", label = 'scipy')
+    #plt.bar(x, y_2, width=0.9, color = "blue", label = 'scipy')
     plt.xlabel("Position")
     plt.ylabel("Probability")
     plt.title("Comparison Scipy vs VarQITE with" + "" + str(beta))
     plt.legend()
     plt.show()
-    save_directory = '/Users/salsa/MatrixModels/matrixmodels/results_gaussian'
+    """
+    save_directory = '/Users/salsa/MatrixModels/matrixmodels/remote/pictures/crankupto8'
     file_name = "beta=" + str(beta) + ".png"
     save_path = os.path.join(save_directory, file_name)
     plt.savefig(save_path)
+    """
 
-def quick_compare(varqite_res, scipy_result):
-    times = varqite_res.times
+def quick_compare(evolution_result, sol):
+    times = evolution_result.times
+    evolved_state = evolution_result.evolved_state
+    varqite_res = Statevector(evolved_state).probabilities_dict(np.arange(qubits))
+    scipy_result = Statevector(sol.evolved_state).probabilities_dict(np.arange(qubits))
     h_exp_val = np.array([ele[0][0] for ele in varqite_res.observables])
     plt.plot(times, h_exp_val, label = "varqite")
     plt.plot(0.01*np.arange(len(scipy_result[0])), scipy_result[0],label = "scipy")
