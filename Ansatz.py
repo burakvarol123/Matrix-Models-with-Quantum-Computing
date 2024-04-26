@@ -117,5 +117,35 @@ def ansatz_review_exact_full_cry(N, depth):
     for k in range(N):
         if k + int(N / 2) < N:
             circuit.cx(k, (k + int(N / 2)))
-    print(counter_3)
     return circuit
+
+
+def ansatz_cry_optimized(N,depth):
+    circuit = QuantumCircuit(N)
+    thetas = []
+    for l in range(int(N*(N-1)/2) * depth*N):
+        thetas.append(Parameter('θ_' + str(chr(l))))
+    counter = 0
+    for i in range(depth):
+        for l in range(N):
+            if l + counter < len(thetas):
+                circuit.h(l)
+                circuit.ry(thetas[l + counter + N], l ) 
+        counter_3 = 0
+        for p in range(N):
+            counter_2 = 0
+            for j in range(N):
+                if p != p+j and p+j <= N-1:
+                    circuit.cry(thetas[j+p+counter+2*N+counter_3-1],p,p +j)
+                    counter_2 += 1
+            counter_3 += counter_2-1
+            if p == N-1:
+                circuit.cx(p,0)
+            
+        counter = counter + 2*N +counter_3
+        circuit.barrier()
+    return circuit
+    
+
+if __name__ == "__main__":
+    ansatz_cry_optimized(3,1).draw("mpl")
