@@ -15,3 +15,5 @@ def matrix_terms(qubits_per_dim, dimension, lattice_spacing, pow):
     return hamiltonian 
 
 
+if __name__ == "__main__":
+    matrix_terms(2,0,1,2)
