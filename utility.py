@@ -1,6 +1,23 @@
+"""
+utility.py
 
+This module provides functions to read and write parameters to and from files, 
+as well as to generate specific  bit combinations for visualization purposes. 
 
-def read_parameters_from_file(path: str, params: dict):
+Functions:
+    read_parameters_from_file(path: str, params: dict) -> dict:
+        Reads parameters from a file and constructs a dictionary based on a 
+        given template.
+        
+    write_parameters_to_file(path: str, params: dict):
+        Writes parameters from a dictionary to a file in a specific format.
+
+    generate_combinations(qubits: int) -> list:
+        Generates combinations of qubit states for visualization. 
+"""
+def read_parameters_from_file(
+        path: str, 
+        params: dict):
     '''
     Reads arbitrary parameters into a dictionary. The input file
     has to be of the format:
@@ -30,7 +47,9 @@ def read_parameters_from_file(path: str, params: dict):
     return params
 
 
-def write_parameters_to_file(path: str, params: dict):
+def write_parameters_to_file(
+        path: str, 
+        params: dict):
     '''
     Writes arbitrary parameters in a dictionary to a file.
     The resulting file will be of the format
@@ -49,16 +68,19 @@ def write_parameters_to_file(path: str, params: dict):
         for key, value in params.items():
             fd.write(f'{key}={value};\n')
 
-def generate_combinations(d):
-    """
-    creates the right order for the visualization of the distrubition
+def generate_combinations(qubits: int):
+    """Creates the right ordering of the bits in computer basis for 
+    visiualisation of varqite and scipy distributions
+
+    Args:
+        qubits (int): NUmber of discretisation qubits.
 
     """
     combinations = []
     combinations_negative = []
     
     def generate_nested_loops(counters, depth):
-        if depth == d:
+        if depth == qubits:
             concatenated_str = "".join(str(counter) for counter in counters)
             concatenated_str_2 = "".join(str(counter) for counter in counters)
             combinations.append("0" + concatenated_str[::-1])
@@ -69,7 +91,7 @@ def generate_combinations(d):
             counters[depth] = i
             generate_nested_loops(counters, depth + 1)
 
-    counters = [0] * d
+    counters = [0] * qubits
     generate_nested_loops(counters, 0)
     return combinations_negative[::-1] + combinations
 
