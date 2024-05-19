@@ -1,10 +1,10 @@
 #!/lustre/fs24/group/cqta/bvarol/package/miniconda3/bin/python3.11
-
-"""one_matrix_max_N.py
+"""one_matrix_max_D.py
 This script creates both varqite and scipy distributions for given parameter
-values. It is designed such that a max discretisation_qubits is given and 
-iterated over every N beginning from 3 to N_max
+values. It is designed such that a max dimension D is given and iterated over
+every D beginning from 0 to D_max
 """
+
 import sys
 module_directory_path = "/lustre/fs24/group/cqta/bvarol/workspace/matrixmodels"
 sys.path.append(module_directory_path)
@@ -22,8 +22,8 @@ if __name__ == "__main__":
     filenames = sorted(sys.argv[1:])
     parameter_template = {
         'depth': int,
-        'D': int,
-        "qubits_per_dim_max": int,
+        'D_max': int,
+        "qubits_per_dim": int,
         'beta': float,
         "a": float,
         "g": float,
@@ -41,17 +41,37 @@ if __name__ == "__main__":
         print(parameters["power_interaction"])
         varqite_results = []
         scipy_results = []
-        for N in np.arange(parameters["qubits_per_dim_max"]-2):
-            qubits = (parameters['D']+1)*(N+3)
-            ansatz = an.ansatz = an.ansatz_cry_optimized(qubits, parameters["depth"])
-            squareterm = om.matrix_terms(qubits_per_dim=N+3, dimension=parameters['D'], lattice_spacing=parameters['a'] , pow = 2)
-            interaction = om.matrix_terms(N+3, parameters['D'], parameters['a'], parameters['power_interaction']) 
+        for D in np.arange(parameters["D_max"]):
+            qubits = (D+1)*(parameters["qubits_per_dim"])
+            ansatz = an.ansatz_cry_optimized(qubits, parameters["depth"])
+            squareterm = om.matrix_terms(
+                qubits_per_dim=parameters["qubits_per_dim"], 
+                dimension=D, 
+                lattice_spacing=parameters['a'] , 
+                pow = 2)
+            interaction = om.matrix_terms(
+                parameters["qubits_per_dim"], 
+                D, 
+                parameters['a'], 
+                parameters['power_interaction']) 
             hamiltonian = squareterm - parameters["g"] * interaction
-            evolution_result = create_distribution_varqite(qubits, parameters['depth'], hamiltonian, parameters['beta'], ansatz, parameters["num_timesteps"])
-            scipy_result = create_distribution_scipy(qubits, parameters['depth'], hamiltonian, parameters['beta'], ansatz, parameters["num_timesteps"])
+            evolution_result = create_distribution_varqite(
+                qubits, 
+                parameters['depth'], 
+                hamiltonian, 
+                parameters['beta'], 
+                ansatz, 
+                parameters["num_timesteps"])
+            scipy_result = create_distribution_scipy(
+                qubits, 
+                parameters['depth'], 
+                hamiltonian, 
+                parameters['beta'], 
+                ansatz, 
+                parameters["num_timesteps"])
             varqite_results.append(evolution_result)
             scipy_results.append(scipy_result)
-            print("completed cycle, qubits =", N+3)
-        results = varqite_results + scipy_results  # first N terms are varqite, others scipy
+            print("completed cycle, qubits =", qubits)
+        results = varqite_results + scipy_results  
         ut.write_parameters_to_file(filename, parameters)
         np.save(filename + '_evolution', results)
