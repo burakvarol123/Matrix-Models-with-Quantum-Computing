@@ -1,0 +1,10 @@
+depth=2;
+D=0;
+qubits_per_dim=7;
+beta=1.0;
+a=0.1;
+g=0.0;
+power=2;
+power_interaction=3;
+num_timesteps=450;
+out=<class 'str'>;
