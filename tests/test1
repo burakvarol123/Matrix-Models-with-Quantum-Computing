@@ -1,9 +1,0 @@
-depth=1;
-D=0;
-qubits_per_dim=4;
-beta=1.0;
-a=1.0;
-g=0.1;
-power=2;
-power_interaction=3;
-out=<class 'str'>;
