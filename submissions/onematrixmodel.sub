@@ -1,12 +1,13 @@
 universe		         = vanilla
-executable             	 =/lustre/fs24/group/cqta/bvarol/workspace/matrixmodels/one_matrix_max_N.py
-log                    	 = /lustre/fs24/group/cqta/bvarol/workspace/matrixmodels/submissions/onematrix_1_5.log
-arguments		         = /lustre/fs24/group/cqta/bvarol/workspace/matrixmodels/new_results/crankupN7D1g0_1a0_01 
-error = error252
+executable             	 =/lustre/fs24/group/cqta/bvarol/workspace/matrixmodels/zcalc.py
+log                    	 = /lustre/fs24/group/cqta/bvarol/workspace/matrixmodels/submissions/onematrix_1_523.log
+
+output = outputfile23
+error = error25223
 should_transfer_files  	 = Yes
 when_to_transfer_output	 = ON_EXIT
-request_memory         	 = 8GB
-request_disk           	 = 8GB
-Request_Cpus            = 4
+request_memory         	 = 100MB
+request_disk           	 = 100MB
+Request_Cpus            = 2
 +RequestRuntime = 604700
 queue

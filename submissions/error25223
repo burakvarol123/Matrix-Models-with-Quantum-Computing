@@ -1,0 +1,6 @@
+/lustre/fs24/group/cqta/bvarol/package/miniconda3/lib/python3.11/site-packages/scipy/sparse/linalg/_expm_multiply.py:295: RuntimeWarning: invalid value encountered in multiply
+  B = coeff * A.dot(B)
+/lustre/fs24/group/cqta/bvarol/package/miniconda3/lib/python3.11/site-packages/scipy/sparse/linalg/_expm_multiply.py:301: RuntimeWarning: invalid value encountered in multiply
+  F = eta * F
+/lustre/fs24/group/cqta/bvarol/package/miniconda3/lib/python3.11/site-packages/qiskit/algorithms/time_evolvers/classical_methods/evolve.py:200: RuntimeWarning: invalid value encountered in divide
+  (lambda state: state) if real_time else (lambda state: state / np.linalg.norm(state))

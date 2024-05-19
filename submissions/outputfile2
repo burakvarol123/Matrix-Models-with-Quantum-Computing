@@ -1,0 +1,22 @@
+depth=1;
+D=1;
+qubits_per_dim=3;
+beta=1.0;
+a=0.1;
+g_max=1;
+power=2;
+power_interaction=3;
+out=<class 'str'>;
+num_timesteps=450;
+
+3
+completed cycle, qubits = 6
+completed cycle, qubits = 6
+completed cycle, qubits = 6
+completed cycle, qubits = 6
+completed cycle, qubits = 6
+completed cycle, qubits = 6
+completed cycle, qubits = 6
+completed cycle, qubits = 6
+completed cycle, qubits = 6
+completed cycle, qubits = 6
