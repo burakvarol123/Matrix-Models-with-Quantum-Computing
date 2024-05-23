@@ -9,21 +9,23 @@ This project is the first part of my master thesis where we try to simulate Matr
 
 Our Goal is to simulate (hermitian) Random Multi Matrix Models of the kind:
 
-![equation](https://latex.codecogs.com/svg.image?Z=\int\prod_{\alpha=1...\nu-1;i=1...N}d\lambda_i^{(\alpha)}\Delta(\Lambda^{(1)})e^{-\sum_i&space;V(\lambda_i^{(\alpha)})}\Delta(\Lambda^{(\nu-1)}).)
+![equation](https://latex.codecogs.com/svg.image?e^Z=\int\prod_{\alpha=1}^{\nu-1}dM^{(\alpha)}e^{-Tr[V(M^{(\alpha)})]})
 
 with 
 ![equation](https://latex.codecogs.com/svg.image?V(M^{(\alpha)})=\sum_{\alpha=1}^{\nu-1}V_{\alpha}M^{(\alpha)}-\sum_{\alpha=1}^{\nu-2}c_{\alpha}M^{(\alpha)}M^{(\alpha&plus;1)})
 
-which are shown to be dual to matter coupled with 2D Quantum Gravity. Our end goal is to model and calculate meaningful expectation values without assuming coupling strength "g" is small. We therefore want to explore the landscape of different couplings and search for interesting phenomena. (eg. a phase transition, indicating a possible Conformal Field Theory ).
+which are shown to be dual to matter coupled with 2D Quantum Gravity. Our end goal is to model and calculate meaningful expectation values without assuming coupling strength parameters is small. We therefore want to explore the landscape of different couplings and search for interesting phenomena. (eg. a phase transition, indicating a possible Conformal Field Theory ).
 
 Because of the large dimensions of the NxN random matrices, providing a speedup with quantum computing can result into a possible investigation of Large N Limit (which is known analytically) and "middle" N limit of the theories.
 
 ## Model 
 
 Our latest results are shown for the One Matrix Model:
+
 ![equation](https://latex.codecogs.com/svg.image?&space;Z=\int&space;dM\exp{-tr(V(M))})
 
-with ![equation](https://latex.codecogs.com/svg.image?V(M)=M^2&plus;\sum_{k\geq&space;3}\alpha_k&space;M^k)
+with :
+![equation](https://latex.codecogs.com/svg.image?V(M)=M^2&plus;\sum_{k\geq&space;3}\alpha_k&space;M^k)
 
 which would describe pure gravity and tessellation of the space. Integral is  parameterised  with eigenvalues and unitary matrices and reduce the integral to consecutive real integrals with the Vandermonde determinant: 
 ![equation](https://latex.codecogs.com/svg.image?Z=\int\prod_i^N&space;d\lambda_i\Delta(\Lambda)^2\exp{(-\sum_i&space;V(\lambda_i))})
